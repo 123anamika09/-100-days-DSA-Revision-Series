@@ -1,0 +1,18 @@
+class Solution {
+    public int minSubArrayLen(int target, int[] nums) {
+        int n = nums.length;
+        int i = 0;
+        int sum = 0;
+        int minLen = Integer.MAX_VALUE;
+        for(int j = 0;j<n;j++){
+           sum = sum + nums[j];
+           while(sum>=target){ // shrink ka case h .... 
+            minLen= Math.min(minLen,j-i+1);
+            sum = sum-nums[i]; //left se shrink & right+1 tb ho rha jb sum <k then dtop left ko htayenge & right  ko add krenge
+            i++;
+           }
+        //j++ to bhr already for loop me ho rha h ....
+        }
+       return  minLen == Integer.MAX_VALUE?0:minLen;
+    }
+}
