@@ -1,0 +1,21 @@
+class Solution {
+    public boolean canConstruct(String ransomNote, String magazine) {
+        if(ransomNote.length()>magazine.length()) return false;
+        HashMap<Character,Integer> map = new HashMap<>();
+
+        for(char c: magazine.toCharArray()){
+           map.put(c, map.getOrDefault(c,0)+1); // count the characetr and put it into map
+        }
+        for(char c : ransomNote.toCharArray()){  // check magazine key  count 1st then  ransome not
+            if(!map.containsKey(c) || map.get(c) == 0) { // check map not contains any key or access the item c
+            return false; 
+            }
+            map.put(c,map.get(c)-1); // reduce the frequncy and update the map  
+            // 1st check map then a = 2 
+            // we take one a out of the map 
+            //  since one a is left
+            //  update the map
+        }
+      return true;
+    }
+}
