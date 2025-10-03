@@ -1,0 +1,25 @@
+class Solution {
+    public String simplifyPath(String path) {
+        Stack<String> st = new Stack<>();
+        String[] words = path.split("/");
+        for( String word:words){
+             if(word.equals("") || word.equals(".")) continue;
+             else if(word.equals("..")){
+                  if(!st.isEmpty()){
+                    st.pop();
+                  }
+
+
+             }
+                  else st.push(word);
+             
+        }
+             StringBuilder sb = new StringBuilder();
+            for(String directory:st){
+                sb.append("/").append(directory);
+            
+        }
+        return sb.length()>0 ? sb.toString() : "/";
+
+    }
+}
