@@ -1,0 +1,20 @@
+class Solution {
+    public int sum(int n){
+        int sum = 0;
+        while(n!=0){
+            int number = n%10;
+            sum = sum + number*number;
+            n = n/10;
+
+        }
+        return sum;
+    }
+    public boolean isHappy(int n) {
+         HashSet<Integer> set = new HashSet<>();
+         while(!set.contains(n)){
+            set.add(n);
+            n = sum(n);
+         }
+         return n ==1;
+    }
+}
